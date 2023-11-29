@@ -23,8 +23,9 @@
                     } else {
                         while ($reg = $busca->fetch_object()) {
                             $t = thumb($reg->capa);
-                            echo "<tr><td><img src='$t' class='mini'/><td>$reg->nome";
-                            echo "<td>Adm";
+                            echo "<tr><td><img src='$t' class='mini'/></td>";
+                            echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a></td>";
+                            echo "<td>Adm</td>";
                         }
                     }
                 }
