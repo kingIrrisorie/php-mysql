@@ -23,9 +23,10 @@
             } else {
                 if ($busca->num_rows == 1){
                     $reg = $busca->fetch_object();
-                    echo "<tr><td rowspan='3'>foto</td>";
-                    echo "<td><h2>$reg->nome</h2></td></tr>";
-                    echo "<tr><td>Descricao</td></tr>";
+                    $t = thumb($reg->capa);
+                    echo "<tr><td rowspan='3'><img class='full' src='$t'></td>";
+                    echo "<td><h2>$reg->nome</h2>";
+                    echo "Nota: " . number_format($reg->nota, 1) . "/10.0</td></tr>";
                     echo "<tr><td>Adm</td></tr>";
                 }  else {
                     echo "<tr><td>Nenhum registro encontrado</td></tr>";
@@ -33,6 +34,7 @@
             }
             ?>
         </table>
+        <a href="index.php"><img src="icones/icoback.png"/></a>
     </div>
 </body>
 </html>
